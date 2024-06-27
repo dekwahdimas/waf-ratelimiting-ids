@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/styles.css') }}">
+    <title>Payload Receiver</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container position-absolute top-50 start-50 translate-middle">
+        <!-- Form to submit the payload -->
+        <h1 class="text-center">Submit the Payload!</h1>
+        <form method="post" class="form-floating row g-2">
+            <input type="text" name="input_payload" class="form-control" id="floatingInput" placeholder="Here's your payload." required>
+            <label for="floatingInput">Payload</label>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <!-- Display the submitted payload -->
+        {% if the_payload %}
+        <hr>
+        <h1 class="text-center">The Payload:</h1>
+        <div class="card">
+            <div class="card-body">
+                {{ the_payload }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
